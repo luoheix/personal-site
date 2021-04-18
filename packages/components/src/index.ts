@@ -1,3 +1,3 @@
-import ComponentOne from './componentOne';
+import ExpandableDom from './expandableDom';
 
-export { ComponentOne };
+export { ExpandableDom };

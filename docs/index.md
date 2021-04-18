@@ -5,7 +5,7 @@ hero:
   desc: 😐 个人网站，包含公共组件库、有趣的前端设计、resume 等
   actions:
     - text: 组件总览
-      link: /component-one
+      link: /components
 features:
   - icon: https://6865-heixongjun-ok4ws-1302448573.tcb.qcloud.la/personalBlog/components.png
     title: Components
