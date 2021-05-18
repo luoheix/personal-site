@@ -1,3 +1,4 @@
 import ExpandableDom from './expandableDom';
+import AutoScrollTable from './autoScrollTable';
 
-export { ExpandableDom };
+export { ExpandableDom, AutoScrollTable };

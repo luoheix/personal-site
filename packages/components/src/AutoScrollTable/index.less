@@ -1,0 +1,26 @@
+.autoScrollTable {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .tableHeader {
+    :global {
+      .ant-table-tbody {
+        display: none;
+      }
+    }
+  }
+
+  .scrollContent {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+
+    :global {
+      .ant-empty-description {
+        color: #fff;
+      }
+    }
+  }
+}
