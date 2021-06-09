@@ -1,4 +1,5 @@
 import ExpandableDom from './expandableDom';
 import AutoScrollTable from './autoScrollTable';
+import Blowup from './Blowup';
 
-export { ExpandableDom, AutoScrollTable };
+export { ExpandableDom, AutoScrollTable, Blowup };
