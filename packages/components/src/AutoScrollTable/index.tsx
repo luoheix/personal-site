@@ -6,10 +6,9 @@ import { ColumnsType } from 'antd/lib/table';
 import Style from 'style-it';
 import styles from './index.less';
 
-const animatKey = nanoid();
-
 const getScrollStyle = (rowHeight: number, length: number) => {
-  return `@keyframes rowup${animatKey} {
+  const key = nanoid();
+  return `@keyframes rowup${key} {
     0% {
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
@@ -22,11 +21,23 @@ const getScrollStyle = (rowHeight: number, length: number) => {
   }
   .auto-scroll-table {
     position: relative;
-    -webkit-animation: rowup${animatKey} ${length *
-    1.5}s linear infinite normal;
-    animation: rowup${animatKey} ${length * 1.5}s linear infinite normal;
+    -webkit-animation: rowup${key} ${length * 1.5}s linear infinite normal;
+    animation: rowup${key} ${length * 1.5}s linear infinite normal;
     animation-duration: ${length * 1.5}s;
+  }
+  .auto-scroll-table:hover {
+    animation-play-state: paused;
   }`;
+};
+
+const loop = <T, U>(dataSource: T[], num: number) => {
+  let i = 0;
+  let loopList: T[] = [];
+  while (i < num) {
+    loopList = [...loopList, ...dataSource];
+    i += 1;
+  }
+  return loopList;
 };
 
 export default <T, U>({
@@ -39,9 +50,20 @@ export default <T, U>({
   const scrollRef = useRef<any>();
   const scrollParentRef = useRef<any>();
   const scrollSize = useSize(scrollRef);
-  const scrollParentSize = useSize(scrollParentRef);
 
-  const isScroll = (scrollSize?.height ?? 0) > (scrollParentSize?.height ?? 0);
+  const scrollData = (() => {
+    switch (dataSource?.length) {
+      case 1:
+        return loop(dataSource, 5);
+        break;
+      case 2:
+        return loop(dataSource, 3);
+      case 3:
+        return loop(dataSource, 2);
+      default:
+        return dataSource;
+    }
+  })();
 
   const tableProps: TableProps<any> = {
     size: 'small',
@@ -51,9 +73,8 @@ export default <T, U>({
     columns,
   };
 
-  const rowHeight = (scrollSize?.height ?? 0) / (dataSource?.length ?? 0);
-
-  console.log(rowHeight, dataSource?.length, 'dataSource?.length');
+  // 表格行高
+  const rowHeight = (scrollSize?.height ?? 0) / (scrollData?.length ?? 0);
 
   return (
     <div className={styles.autoScrollTable}>
@@ -65,39 +86,27 @@ export default <T, U>({
         columns={columns}
       />
       <div className={styles.scrollContent} ref={scrollParentRef}>
-        {isScroll
-          ? Style.it(
-              getScrollStyle(rowHeight, dataSource?.length ?? 0),
-              <div className="auto-scroll-table">
-                <Table
-                  {...tableProps}
-                  dataSource={[
-                    ...(dataSource || []),
-                    ...(dataSource || []),
-                  ].map(item => ({
-                    ...item,
-                    id: nanoid(),
-                  }))}
-                />
-              </div>,
-            )
-          : null}
+        {Style.it(
+          getScrollStyle(rowHeight, scrollData?.length ?? 0),
+          <div className="auto-scroll-table">
+            <Table
+              {...tableProps}
+              dataSource={[...(scrollData || []), ...(scrollData || [])].map(
+                item => ({
+                  ...item,
+                  id: nanoid(),
+                }),
+              )}
+            />
+          </div>,
+        )}
         <div
           ref={scrollRef}
-          style={
-            isScroll
-              ? {
-                  visibility: 'hidden',
-                  position: 'absolute',
-                  top: 0,
-                  width: '100%',
-                }
-              : {}
-          }
+          style={{ visibility: 'hidden', position: 'absolute', top: 0 }}
         >
           <Table
             {...tableProps}
-            dataSource={dataSource?.map(item => ({ ...item, id: nanoid() }))}
+            dataSource={scrollData?.map(item => ({ ...item, id: nanoid() }))}
           />
         </div>
       </div>

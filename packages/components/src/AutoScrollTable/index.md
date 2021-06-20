@@ -20,7 +20,7 @@ import { AutoScrollTable } from '@lws/components';
 
 interface tableItem {
   id: string;
-  school: string;
+  name: string;
   oneNum: number;
   sum: number;
   threeNum: number;
@@ -45,22 +45,27 @@ export default () => {
     {
       title: '名称',
       dataIndex: 'name',
+      ellipsis: true,
       render: (text, record) => `${text}测试名称（${record.number}）`,
     },
     {
       title: '第一数量',
       dataIndex: 'oneNum',
-      width: '25%',
+      align: 'right',
+      width: '21%',
     },
     {
       title: '第二数量',
       dataIndex: 'sum',
-      width: '25%',
+      align: 'right',
+      width: '21%',
     },
     {
       title: '第三数量',
       dataIndex: 'threeNum',
-      width: '25%',
+      align: 'right',
+      width: '21%',
+      render: text => `${text}%`,
     },
   ];
 

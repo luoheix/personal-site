@@ -1,0 +1,37 @@
+.autoScrollRow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .tableHeader {
+    :global {
+      .ant-table-tbody {
+        display: none;
+      }
+    }
+  }
+
+  .scrollContent {
+    position: relative;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+
+    :global {
+      .ant-empty-description {
+        color: #fff;
+      }
+    }
+
+    .content {
+      position: relative;
+
+      .children {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+      }
+    }
+  }
+}
