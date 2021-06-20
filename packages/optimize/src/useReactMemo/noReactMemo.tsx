@@ -91,7 +91,7 @@ export default () => {
 
   return (
     <div className={styles.list}>
-      {list.map((item) => {
+      {list.map(item => {
         console.log('repeat render');
         return (
           <div className={styles.item} key={item.id}>

@@ -10,7 +10,12 @@ export default defineConfig({
   mode: 'site',
   // more config: https://d.umijs.org/config
   resolve: {
-    includes: ['docs', 'packages/components/src', 'packages/interesting/src', 'packages/optimize/src'],
+    includes: [
+      'docs',
+      'packages/components/src',
+      'packages/interesting/src',
+      'packages/optimize/src',
+    ],
   },
   extraBabelPlugins: [
     [

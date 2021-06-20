@@ -5,7 +5,6 @@ nav:
   title: Interesting
   path: /interesting
   order: 2
-  
 ---
 
 ## interestOne
