@@ -39,6 +39,7 @@ const BlowupLens: React.FC<BlowupLensType> = ({
     width: lensSize,
     height: lensSize,
     borderRadius: `${radius}%`,
+    display: mouse.clientX ? 'block' : 'none',
   };
 
   return <div className={styles.blowupLens} style={lensStyle} />;

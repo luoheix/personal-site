@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useHover } from 'ahooks';
 import styles from './index.less';
-import BlowupLens from './BlowupLens';
+import BlowupLens from './blowupLens';
 
 export interface BlowupType {
   /**
@@ -34,15 +34,17 @@ const Blowup: React.FC<BlowupType> = ({
   return (
     <div className={styles.blowup}>
       <img src={src} ref={imgRef} />
-      <div className={styles.blowupLens}>
-        <BlowupLens
-          imgRef={imgRef}
-          src={src}
-          multiple={multiple}
-          lensSize={lensSize}
-          radius={radius}
-        />
-      </div>
+      {isHovering && (
+        <div className={styles.blowupLens}>
+          <BlowupLens
+            imgRef={imgRef}
+            src={src}
+            multiple={multiple}
+            lensSize={lensSize}
+            radius={radius}
+          />
+        </div>
+      )}
     </div>
   );
 };
