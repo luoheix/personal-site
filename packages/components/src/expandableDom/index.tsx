@@ -6,8 +6,17 @@ import styles from './index.less';
 
 interface ExpandableDomProps {
   children: React.ReactElement;
-  collapseHeight: number; // 收起高
-  expandHeight?: number; // 展开高
+  /**
+   * @description 收起高
+   */
+  collapseHeight: number;
+  /**
+   * @description 展开高
+   */
+  expandHeight?: number;
+  /**
+   * @description 收起展开变化时的回调
+   */
   onChange?: (expand: boolean) => void;
 }
 

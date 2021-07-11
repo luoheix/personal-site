@@ -3,14 +3,6 @@
   flex-direction: column;
   height: 100%;
 
-  .tableHeader {
-    :global {
-      .ant-table-tbody {
-        display: none;
-      }
-    }
-  }
-
   .scrollContent {
     position: relative;
     flex: 1;
@@ -25,8 +17,10 @@
 
     .content {
       position: relative;
+      height: 100%;
 
       .children {
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;

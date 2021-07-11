@@ -1,11 +1,10 @@
 ---
-title: Use-react-memo
-order: 1
 nav:
   title: Optimize
-  path: /optimize
   order: 3
 ---
+
+## ReactMemo
 
 文档地址：[利用组件化思想 + React.memo 进行渲染速度优化 · 黑熊君](https://www.yuque.com/luowenshuai/design/upbohr)
 

@@ -1,13 +1,4 @@
----
-title: Expandable-dom
-order: 1
-nav:
-  title: components
-  path: /components
-  order: 1
----
-
-## Expandable-dom
+## ExpandableDom
 
 超长自动可展开容器，传入超过可展开高度（collapseHeight）和展开后最大高度（expandHeight）。
 
@@ -50,3 +41,5 @@ export default () => {
   );
 };
 ```
+
+<API src="../../packages/components/src/expandableDom/index.tsx"></API>

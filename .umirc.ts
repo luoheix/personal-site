@@ -10,11 +10,34 @@ export default defineConfig({
   mode: 'site',
   // more config: https://d.umijs.org/config
   resolve: {
-    includes: [
-      'docs',
-      'packages/components/src',
-      'packages/interesting/src',
-      'packages/optimize/src',
+    includes: ['docs'],
+  },
+  menus: {
+    '/components': [
+      {
+        title: '通用组件',
+        children: [
+          '/components/blowup',
+          '/components/expandableDom',
+          '/components/imgWatermark',
+        ],
+      },
+      {
+        title: '大屏项目组件',
+        children: ['/components/autoScrollRow', '/components/autoScrollTable'],
+      },
+    ],
+    '/interesting': [
+      {
+        title: '有趣的设计',
+        children: ['/interesting/interestOne'],
+      },
+    ],
+    '/optimize': [
+      {
+        title: '利用 React 优化',
+        children: ['/optimize/useReactMemo'],
+      },
     ],
   },
   extraBabelPlugins: [

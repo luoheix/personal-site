@@ -1,9 +1,6 @@
 ---
-title: Blowup
-order: 1
 nav:
-  title: components
-  path: /components
+  title: Components
   order: 1
 ---
 
@@ -15,7 +12,7 @@ nav:
 import React, { useState } from 'react';
 import { InputNumber, Form } from 'antd';
 import { Blowup } from '@lws/components';
-import scenery from '../assets/images/scenery.jpg';
+import scenery from '../../packages/components/src/assets/images/scenery.jpg';
 
 export default () => {
   const [multiple, setMultiple] = useState(2);
@@ -58,4 +55,4 @@ export default () => {
 };
 ```
 
-<API />
+<API src="../../packages/components/src/blowup/index.tsx"></API>

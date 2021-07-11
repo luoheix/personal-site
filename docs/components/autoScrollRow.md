@@ -1,13 +1,4 @@
----
-title: Auto-scroll-row
-order: 1
-nav:
-  title: components
-  path: /components
-  order: 1
----
-
-## Auto-scroll-row
+## AutoScrollRow
 
 横向自动滚动表格，父元素必须有宽度。
 
@@ -90,4 +81,4 @@ export default () => {
 };
 ```
 
-<API />
+<API src="../../packages/components/src/autoScrollRow/index.tsx"></API>

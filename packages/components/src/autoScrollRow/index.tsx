@@ -17,6 +17,7 @@ const getScrollStyle = (width: number, length: number) => {
     }
   }
   .auto-scroll-card {
+    height: 100%;
     position: relative;
     -webkit-animation: rowup${key} ${(width * length) /
     50}s linear infinite normal;
@@ -31,7 +32,7 @@ const getScrollStyle = (width: number, length: number) => {
 interface AutoScrollRowProps {
   listLength: number;
   rowWidth: number;
-  oneScreenNum: number;
+  // oneScreenNum: number;
 }
 
 const AutoScrollRow: React.FC<AutoScrollRowProps> = ({

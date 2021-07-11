@@ -1,13 +1,4 @@
----
-title: Auto-scroll-table
-order: 1
-nav:
-  title: components
-  path: /components
-  order: 1
----
-
-## Auto-scroll-table
+## AutoScrollTable
 
 自适应自动滚动表格，超过父元素无限循环自动滚动，父元素必须有高度，除第一列其他列必须设置宽度。  
 **拖拽浏览器使其高度小于表格高度**
@@ -76,3 +67,5 @@ export default () => {
   );
 };
 ```
+
+<API src="../../packages/components/src/autoScrollTable/index.tsx"></API>
